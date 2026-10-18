@@ -52,3 +52,18 @@ npm run render
 ```
 
 出力先：`out/bestie-cup.mp4`
+
+## GitHubでMP4を自動書き出し
+
+1. 元のロゴをPNG画像として `bestie-cup-video/public/logo.png` にアップロードし、mainへコミットします。
+2. GitHub Actions の「Render Bestie Cup MP4」が自動で起動します。
+3. 成功すると `bestie-cup-video/exports/bestie-cup.mp4` がmainへ保存されます。
+4. 動画のGitHubページで「Download raw file」からダウンロードできます。ActionsのArtifactsにも30日間保存します。
+
+白い外背景の除去と切り抜きは自動処理します。文字の内側の白は保持します。
+ロゴが未追加の場合は書き出しを停止します。
+Actionsが無効になっている場合はリポジトリのActions画面で有効にしてください。
+ブランチ保護で自動コミットが拒否された場合も、書き出し成功後のMP4はActionsのArtifactから取得できます。
+
+この設定の保存時点ではロゴ素材が未追加のため、MP4はまだ生成されていません。
+参考動画との動きの照合と映像の目視確認も未完了です。
